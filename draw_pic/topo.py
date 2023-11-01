@@ -91,15 +91,11 @@ ch_name = ['Fp1', 'Fp2', 'AF7', 'AF3', 'AFz', 'AF4', 'AF8', 'F7', 'F5', 'F3',
 			'CPz', 'CP2', 'CP4', 'CP6', 'TP8', 'TP10', 'P7', 'P5', 'P3', 'P1',
 			'Pz', 'P2', 'P4', 'P6', 'P8', 'PO7', 'PO3', 'POz', 'PO4', 'PO8',
 			'O1', 'Oz', 'O2']
-# index = [37, 9, 10, 46, 45, 44, 13, 12, 11, 47, 48, 49, 50, 17, 18, 31, 55, 54, 19, 30, 56, 29]
-# biosemi_montage.ch_names = [biosemi_montage.ch_names[i] for i in index]
-# biosemi_montage.dig = [biosemi_montage.dig[i+3] for i in index]
-# biosemi_montage.ch_names = ch_name
+
 info = mne.create_info(ch_names=ch_name, sfreq=1000., ch_types='eeg')
 evoked = mne.EvokedArray(dd, info)
 evoked.set_montage(easycapm1_montage)
 
-# # * 正常画图
 # plt.figure(1)
 # tmp_data = evoked.data[:, :250]
 # topo_data = np.mean(tmp_data, axis=1)
@@ -125,6 +121,6 @@ for i in range(10):
     axs[i].set_title('%d-%d ms' % (i*100, (i+1)*100))
 cax = fig.add_axes([0.92, 0.33, 0.005, 0.4])
 fig.colorbar(im, cax=cax)
-plt.savefig('./pic/Conf/topo_ten.svg', dpi=300)
+plt.savefig('./pic/topo_ten.svg', dpi=300)
 
 print('the end')

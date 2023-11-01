@@ -118,11 +118,4 @@ ax2.set_xlabel('Frequency (Hz)')
 ax2.set_ylim([-np.pi, np.pi])
 ax2.grid(True)
 
-# # Just Amplitude
-# fig, ax = plt.subplots(figsize=(10, 6))
-# ax.plot(0.5*fs*w/np.pi, np.abs(h))
-# ax.set_title('Frequency Response')
-# ax.set_xlabel('Frequency (Hz)')
-# ax.set_ylabel('Amplitude')
-# ax.grid(True)
 plt.savefig('bp_freq_response.png')

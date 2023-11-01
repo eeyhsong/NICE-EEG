@@ -1,3 +1,7 @@
+"""
+Many thanks to the authors of Things-EEG2!!
+"""
+
 """Preprocess the  raw EEG data: channel selection, epoching, frequency
 downsampling, baseline correction, multivariate noise normalization (MVNN),
 sorting of the data image conditions and reshaping the data to:
@@ -34,7 +38,7 @@ parser.add_argument('--sub', default=10, type=int)
 parser.add_argument('--n_ses', default=4, type=int)
 parser.add_argument('--sfreq', default=250, type=int)
 parser.add_argument('--mvnn_dim', default='epochs', type=str)
-parser.add_argument('--project_dir', default='/home/songyonghao/Documents/Data/Things-EEG2/', type=str)
+parser.add_argument('--project_dir', default='/home/Data/Things-EEG2/', type=str)
 args = parser.parse_args()
 
 print('>>> EEG data preprocessing <<<')

@@ -10,18 +10,6 @@ alpha = [0.015, 0.01, 0.015, 0.025, 0.025, 0.025, 0.045, 0.035, 0.005, 0.035]
 beta = [0.025, 0.03, 0.065, 0.05, 0.035, 0.035, 0.06, 0.08, 0.015, 0.08]
 gamma = [0.005, 0.005, 0.005, 0.005, 0, 0.005, 0.005, 0.01, 0.005, 0.01]
 
-# p_frontral = stats.wilcoxon(all, frontral, alternative='greater', )[1] * 5
-# p_central = stats.wilcoxon(all, central, alternative='greater')[1] * 5 
-# p_parietal = stats.wilcoxon(all, parietal, alternative='greater')[1] * 5
-# p_occipital = stats.wilcoxon(all, occipital, alternative='greater')[1] * 5
-# p_temporal = stats.wilcoxon(all, temporal, alternative='greater')[1] * 5
-
-# # t_frontral = stats.ttest_ind(all, frontral)[1]
-# # t_central = stats.ttest_ind(all, central)[1]
-# # t_parietal = stats.ttest_ind(all, parietal)[1]
-# # t_occipital = stats.ttest_ind(all, occipital)[1]
-# # t_temporal = stats.ttest_ind(all, temporal)[1]
-
 
 delta = np.array(delta) * 100
 theta = np.array(theta) * 100
@@ -53,4 +41,4 @@ ax.set_xlabel('Frequency band', fontsize=12)
 ax.set_ylabel('Accuracy (%)', fontsize=12)
 
 # save the figure
-plt.savefig('./pic/Conf/frequency_band.svg', dpi=300)
+plt.savefig('./pic/frequency_band.svg', dpi=300)

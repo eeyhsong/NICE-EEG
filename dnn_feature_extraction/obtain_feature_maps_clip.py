@@ -24,13 +24,9 @@ gpus = [7]
 os.environ['CUDA_DEVICE_ORDER'] = 'PCI_BUS_ID'
 os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, gpus))
 
-
-# =============================================================================
-# Input arguments
-# =============================================================================
 parser = argparse.ArgumentParser()
 parser.add_argument('--pretrained', default=True, type=bool)
-parser.add_argument('--project_dir', default='/home/songyonghao/Documents/Data/Things-EEG2/', type=str)
+parser.add_argument('--project_dir', default='/home/Data/Things-EEG2/', type=str)
 args = parser.parse_args()
 
 print('Extract feature maps CLIP <<<')
@@ -42,44 +38,13 @@ for key, val in vars(args).items():
 seed = 20200220
 torch.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
-# torch.use_deterministic_algorithms(True)
 
 
-# =============================================================================
-# Select the layers of interest and import the model
-# =============================================================================
 model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14")
 model = model.cuda()
 model = nn.DataParallel(model, device_ids=[i for i in range(len(gpus))])
 
-
-# url = "http://images.cocodataset.org/val2017/000000039769.jpg"
-# image = Image.open(requests.get(url, stream=True).raw)
-
-# inputs = processor(text=["a photo of a cat", "a photo of a dog"], images=image, return_tensors="pt", padding=True)
-
-# outputs = model(**inputs)
-# logits_per_image = outputs.logits_per_image # this is the image-text similarity score
-# probs = logits_per_image.softmax(dim=1) # we can take the softmax to get the label probabilities
-
-
-# =============================================================================
-# Define the image preprocessing
-# =============================================================================
-# centre_crop = trn.Compose([
-# 	trn.Resize((224, 224)),
-# 	trn.ToTensor(),
-# 	# trn.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-# 	trn.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
-# ])
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14")
-
-
-# =============================================================================
-# Load the images and extract the corresponding feature maps
-# =============================================================================
-# Extract the feature maps of (1) training images, (2) test images,
-# (3) ILSVRC-2012 validation images, (4) ILSVRC-2012 test images.
 
 # Image directories
 img_set_dir = os.path.join(args.project_dir, 'Image_set/image_set')

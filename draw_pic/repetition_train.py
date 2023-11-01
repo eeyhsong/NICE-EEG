@@ -96,4 +96,4 @@ ax.legend(loc=9, ncol=2, fontsize=14, frameon=False)
 # Show plot
 # plt.savefig('./pic/Conf/time_window.png', dpi=300)
 plt.tight_layout()
-plt.savefig('./pic/Conf/repetition_train.svg', dpi=300)
+plt.savefig('./pic/repetition_train.svg', dpi=300)

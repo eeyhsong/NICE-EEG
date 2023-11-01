@@ -9,16 +9,12 @@ import os
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import KernelPCA
 
-
-# =============================================================================
-# Input arguments
-# =============================================================================
 parser = argparse.ArgumentParser()
 parser.add_argument('--dnn', default='clip', type=str)
 parser.add_argument('--pretrained', default=True, type=bool)
 # parser.add_argument('--layers', default='single', type=str)
 # parser.add_argument('--n_components', default=1000, type=int)
-parser.add_argument('--project_dir', default='/home/songyonghao/Documents/Data/Things-EEG2/', type=str)
+parser.add_argument('--project_dir', default='/home/Data/Things-EEG2/', type=str)
 args = parser.parse_args()
 
 print('>>> Apply PCA on the feature maps <<<')
@@ -28,14 +24,6 @@ for key, val in vars(args).items():
 
 # Set random seed for reproducible results
 seed = 20200220
-
-
-# =============================================================================
-# Apply PCA on the training images feature maps -- first half
-# =============================================================================
-# The standardization and PCA statistics computed on the training images feature
-# maps are also applied to the test images feature maps and to the ILSVRC-2012
-# images feature maps.
 
 # Load the feature maps
 feats = []
@@ -61,12 +49,6 @@ if os.path.isdir(save_dir) == False:
 np.save(os.path.join(save_dir, file_name), feats)
 del feats
 
-
-
-
-# =============================================================================
-# Apply PCA on the test images feature maps
-# =============================================================================
 # Load the feature maps
 feats = []
 # feats_all = []
@@ -79,7 +61,6 @@ fmaps_list.sort()
 for f, fmaps in enumerate(fmaps_list):
 	fmaps_data = np.load(os.path.join(fmaps_dir, fmaps))
 	feats.append(fmaps_data)
-
 
 # Save the downsampled feature maps
 file_name = 'clip_feature_maps_test'

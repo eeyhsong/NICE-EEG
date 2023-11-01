@@ -23,13 +23,9 @@ gpus = [0]
 os.environ['CUDA_DEVICE_ORDER'] = 'PCI_BUS_ID'
 os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, gpus))
 
-
-# =============================================================================
-# Input arguments
-# =============================================================================
 parser = argparse.ArgumentParser()
 parser.add_argument('--pretrained', default=True, type=bool)
-parser.add_argument('--project_dir', default='/home/songyonghao/Documents/Data/Things-EEG2/Image_set', type=str)
+parser.add_argument('--project_dir', default='/home/Data/Things-EEG2/Image_set', type=str)
 args = parser.parse_args()
 
 print('Extract feature maps CLIP of images for center <<<')
@@ -43,10 +39,6 @@ torch.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
 # torch.use_deterministic_algorithms(True)
 
-
-# =============================================================================
-# Select the layers of interest and import the model
-# =============================================================================
 model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14")
 model = model.cuda()
 model = nn.DataParallel(model, device_ids=[i for i in range(len(gpus))])

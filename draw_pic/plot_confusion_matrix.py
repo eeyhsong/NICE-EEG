@@ -22,20 +22,6 @@ new_order = np.array([83, 1, 103, 138, 36, 139, 148, 140, 143, 104,
                      194, 195, 35, 79, 135, 136, 196, 100, 197, 30, 
                      101, 137, 147, 198, 80, 81, 102, 199, 82, 200])
 
-# new_order -= 1
-
-# nSub = 1
-# y_true = np.arange(200)
-# yy_true = np.zeros(200)
-# for i in range(200):
-#     yy_true[new_order[i]] = y_true[i]
-
-# y_pred = np.load('./pic/y_pred/sub%d_pred.npy' % nSub)
-# y_pred = y_pred[:, 0]
-# yy_pred = np.zeros(200)
-# for i in range(200):
-#     yy_pred[new_order[i]] = y_pred[i]
-
 
 y_true_all = []
 y_pred_all = []
@@ -60,9 +46,6 @@ plt.imshow(cm, cmap='Reds')
 plt.title('Confusion matrix', fontsize=20)
 # scale the colorbar
 plt.colorbar(shrink=0.8)
-# tick_marks = np.arange(200)
-# plt.xticks(tick_marks, fontsize=2)
-# plt.yticks(tick_marks, fontsize=2)
 x_ticks = [35, 82, 102, 137, 147, 200]
 x_ticklabels = ['animal', 'food', 'vehicle', 'tool', 'sport', 'others']
 plt.xticks(x_ticks, x_ticklabels, fontsize=16)

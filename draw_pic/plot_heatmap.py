@@ -7,9 +7,6 @@ import numpy as np
 from matplotlib.font_manager import FontProperties 
 # font = FontProperties(fname=r"simsun.ttc", size=8) 
 
-
-# results = np.load('./pic/similarity/sub1_sim.npy')
-# results = (results - np.min(results)) / (np.max(results) - np.min(results))
 results = []
 for sub in range(10):
     tmp = np.load('./pic/similarity/sub%d_sim.npy' % (sub+1))

@@ -10,18 +10,6 @@ occipital = [0.085, 0.08, 0.115, 0.115, 0.06, 0.1, 0.115, 0.16, 0.06, 0.11]
 temporal = [0.125, 0.08, 0.13, 0.135, 0.07, 0.125, 0.13, 0.155, 0.11, 0.13]
 all = [0.123, 0.104, 0.131, 0.164, 0.08, 0.141, 0.152, 0.2, 0.133, 0.149]
 
-p_frontral = stats.wilcoxon(all, frontral, alternative='greater', )[1] * 5
-p_central = stats.wilcoxon(all, central, alternative='greater')[1] * 5 
-p_parietal = stats.wilcoxon(all, parietal, alternative='greater')[1] * 5
-p_occipital = stats.wilcoxon(all, occipital, alternative='greater')[1] * 5
-p_temporal = stats.wilcoxon(all, temporal, alternative='greater')[1] * 5
-
-# t_frontral = stats.ttest_ind(all, frontral)[1]
-# t_central = stats.ttest_ind(all, central)[1]
-# t_parietal = stats.ttest_ind(all, parietal)[1]
-# t_occipital = stats.ttest_ind(all, occipital)[1]
-# t_temporal = stats.ttest_ind(all, temporal)[1]
-
 frontral = np.array(frontral) * 100 
 central = np.array(central) * 100
 parietal = np.array(parietal) * 100
@@ -52,4 +40,4 @@ ax.set_xlabel('Brain region (ablated)', fontsize=12)
 ax.set_ylabel('Accuracy (%)', fontsize=12)
 
 # save the figure
-plt.savefig('./pic/Conf/spatial_region.svg', dpi=300)
+plt.savefig('./pic/spatial_region.svg', dpi=300)

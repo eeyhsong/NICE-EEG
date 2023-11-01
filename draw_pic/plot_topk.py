@@ -16,7 +16,7 @@ for i in range(len(y_true)):
 match = np.sum(match, axis=1)
 match_place = np.where(match == 1)[0]
 
-things_eeg_test_images_path = '/home/songyonghao/Documents/Data/Things-EEG2/Image_set/image_set/test_images/'
+things_eeg_test_images_path = '/home/Data/Things-EEG2/Image_set/image_set/test_images/'
 things_list = os.listdir(things_eeg_test_images_path)
 things_list.sort()
 
@@ -62,11 +62,7 @@ for i in range(5):
         axes[i, j+1].spines['bottom'].set_visible(False)
         axes[i, j+1].spines['left'].set_visible(False)
         axes[i, j+1].set_xlabel(things_list[tmp_idx][6:], fontsize=12, labelpad=2)
-        # axes[i, j+1].axis('off')
-        # plt.imshow(tmp_img)
-        # plt.axis('off')
 
-# plt.savefig('./pic/topk_%d.png' %match_range, dpi=300)
 plt.savefig('./pic/Conf/topk.svg', dpi=300)
 
 

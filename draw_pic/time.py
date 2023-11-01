@@ -50,6 +50,4 @@ ax.set_ylim([0, 20])
 ax.legend()
 
 
-# Show plot
-# plt.savefig('./pic/Conf/time_window.png', dpi=300)
-plt.savefig('./pic/Conf/time_window.svg', dpi=300)
+plt.savefig('./pic/time_window.svg', dpi=300)
