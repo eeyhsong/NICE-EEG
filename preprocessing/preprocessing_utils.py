@@ -119,6 +119,8 @@ def mvnn(args, epoched_test, epoched_train):
 	them across image conditions and data partitions. The inverse of the
 	resulting averaged covariance matrix is used to whiten the EEG data
 	(independently for each session).
+	
+	zero-score standardization also has well performance
 
 	Parameters
 	----------
@@ -175,8 +177,10 @@ def mvnn(args, epoched_test, epoched_train):
 						axis=0)
 			# Average the covariance matrices across image conditions
 			sigma_part[p] = sigma_cond.mean(axis=0)
-		# Average the covariance matrices across image partitions
-		sigma_tot = sigma_part.mean(axis=0)
+		# # Average the covariance matrices across image partitions
+		# sigma_tot = sigma_part.mean(axis=0)
+		# ? It seems not fair to use test data for mvnn, so we change to just use training data
+		sigma_tot = sigma_part[1]
 		# Compute the inverse of the covariance matrix
 		sigma_inv = scipy.linalg.fractional_matrix_power(sigma_tot, -0.5)
 
@@ -242,7 +246,7 @@ def save_prepr(args, whitened_test, whitened_train, img_conditions_train,
 	del merged_test
 	# Saving directories
 	save_dir = os.path.join(args.project_dir,
-		'Preprocessed_data', 'sub-'+format(args.sub,'02'))
+		'Preprocessed_data_250Hz', 'sub-'+format(args.sub,'02'))
 	file_name_test = 'preprocessed_eeg_test.npy'
 	file_name_train = 'preprocessed_eeg_training.npy'
 	# Create the directory if not existing and save the data

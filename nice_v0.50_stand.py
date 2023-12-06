@@ -13,6 +13,7 @@ import datetime
 import time
 import scipy.io
 import numpy as np
+import pandas as pd
 
 import torch
 import torch.nn as nn
@@ -401,12 +402,14 @@ def main():
     args = parser.parse_args()
 
     num_sub = args.num_sub   
-    aver = 0
-    aver3 = 0
-    aver5 = 0
-    result_write = open(result_path + "sub_result.txt", "w")
-
+    cal_num = 0
+    aver = []
+    aver3 = []
+    aver5 = []
+    
     for i in range(num_sub):
+
+        cal_num += 1
         starttime = datetime.datetime.now()
         seed_n = np.random.randint(args.seed)
 
@@ -416,28 +419,29 @@ def main():
         torch.manual_seed(seed_n)
         torch.cuda.manual_seed(seed_n)
         torch.cuda.manual_seed_all(seed_n)
+
         print('Subject %d' % (i+1))
         ie = IE(args, i + 1)
 
         Acc, Acc3, Acc5 = ie.train()
         print('THE BEST ACCURACY IS ' + str(Acc))
-        result_write.write('Subject ' + str(i + 1) + ' : ' + 'Seed: ' + str(seed_n) + "\n")
-        result_write.write('Average: Top1-%.6f, Top3-%.6f, Top5-%.6f\n' % (Acc, Acc3, Acc5))
+
 
         endtime = datetime.datetime.now()
         print('subject %d duration: '%(i+1) + str(endtime - starttime))
 
-        aver += Acc
-        aver3 += Acc3
-        aver5 += Acc5
+        aver.append(Acc)
+        aver3.append(Acc3)
+        aver5.append(Acc5)
 
-    aver = aver / num_sub
-    aver3 = aver3 / num_sub
-    aver5 = aver5 / num_sub
+    aver.append(np.mean(aver))
+    aver3.append(np.mean(aver3))
+    aver5.append(np.mean(aver5))
 
-    result_write.write('overall Aver: Top1-%.6f, Top3-%.6f, Top5-%.6f\n' % (aver, aver3, aver5))
-
-    result_write.close()
+    column = np.arange(1, cal_num+1).tolist()
+    column.append('ave')
+    pd_all = pd.DataFrame(columns=column, data=[aver, aver3, aver5])
+    pd_all.to_csv(result_path + 'result.csv')
 
 if __name__ == "__main__":
     print(time.asctime(time.localtime(time.time())))

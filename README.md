@@ -1,15 +1,16 @@
-# Decoding Nature Images from EEG
+# Decoding Nature Images from EEG for Object Recognition
 
 ## Datasets
+many thanks for sharing good datasets!
 1. [Things-EEG2](https://www.sciencedirect.com/science/article/pii/S1053811922008758?via%3Dihub)
-2. [Things-MEG](https://elifesciences.org/articles/82580) to be update
+2. [Things-MEG](https://elifesciences.org/articles/82580) (updating)
 
 ## Pre-processing
 ### Script path
 - ./preprocessing/
 ### Data Path 
 - raw data: ./Data/Things-EEG2/Raw_data/
-- proprocessed eeg data: ./Data/Things-EEG2/Preprocessed_data/
+- proprocessed eeg data: ./Data/Things-EEG2/Preprocessed_data_250Hz/
 ### Steps
 1. pre-processing EEG data of each subject
    - modify `preprocessing_utils.py` as you need.

@@ -1,5 +1,7 @@
 """
-Many thanks to the authors of Things-EEG2!!
+Refer to the code of Things-EEG2 but with a few differences. 
+Many thanks!
+https://www.sciencedirect.com/science/article/pii/S1053811922008758
 """
 
 """Preprocess the  raw EEG data: channel selection, epoching, frequency
@@ -78,15 +80,4 @@ del epoched_test, epoched_train
 # Then, the preprocessed data of the test and training data partitions is saved.
 save_prepr(args, whitened_test, whitened_train, img_conditions_train, ch_names,
 	times, seed)
-
-
-# =============================================================================
-# Read pickle file
-# =============================================================================
-# import pickle
-# with open('/home/songyonghao/Documents/Data/Things-EEG2/01_eeg_preprocessing/preprocessed_data/sub-02.pkl', 'rb') as f:
-# 	data = pickle.load(f)
-#     f.close()
-
-
 
