@@ -4,13 +4,9 @@ Natural Image Contrast EEG (NICE) [[Paper](https://arxiv.org/abs/2308.13234)]
 ## Abstract
 ![Network Architecture](/draw_pic/Fig1.png)
 
-- We propose a self-supervised framework for EEG-based object recognition with contrastive
-learning. Remarkable zero-shot performance has been achieved on large and rich datasets.
-- We demonstrate the feasibility of investigating natural image information from EEG signals.
-Extensive experiments affirm the biological plausibility, which brings a resolving of human
-object recognition from temporal, spatial, spectral, and semantic aspects.
-- We apply two plug-and-play modules to capture spatial correlations among EEG channels,
-offering evidence that the model discerns the spatial dynamics of object recognition.
+- Propose a self-supervised framework for EEG-based object recognition with contrastive learning, achieving remarkable zero-shot performance on large and rich datasets.
+- Demonstrate the feasibility of investigating image information from EEG signals, by resolving brain activity from temporal, spatial, spectral, and semantic aspects.
+- Apply two plug-and-play modules to capture spatial correlations among EEG channels, offering evidence that the model discerns the spatial dynamics of object recognition.
 
 ## Datasets
 many thanks for sharing good datasets!
