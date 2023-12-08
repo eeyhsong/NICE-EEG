@@ -1,9 +1,16 @@
-# Decoding Nature Images from EEG for Object Recognition [[Paper](https://arxiv.org/abs/2308.13234)]
-Natural Image Contrast EEG (NICE)
+# Decoding Nature Images from EEG for Object Recognition 
+Natural Image Contrast EEG (NICE) [[Paper](https://arxiv.org/abs/2308.13234)]
 
 ## Abstract
 ![Network Architecture](/draw_pic/Fig1.png)
-Electroencephalography (EEG) signals, known for convenient non-invasive acquisition but low signal-to-noise ratio, have recently gained substantial attention due to the potential to decode natural images. This paper presents **a self-supervised framework** to demonstrate the feasibility of learning image representations from **EEG** signals, particularly for **object recognition**. The framework utilizes image and EEG encoders to extract features from paired image stimuli and EEG responses. Contrastive learning aligns these two modalities by constraining their similarity. With the framework, we attain significantly above-chance results on a comprehensive EEG-image dataset, achieving a top-1 accuracy of 15.6% and a top-5 accuracy of 42.8% in challenging 200-way zero-shot tasks. Moreover, we perform extensive experiments to explore the **biological plausibility by resolving the temporal, spatial, spectral, and semantic aspects of EEG signals**. Besides, we introduce **attention modules** to capture spatial correlations, **providing implicit evidence** of the brain activity perceived from EEG data. These findings yield valuable insights for neural decoding and brain-computer interfaces in real-world scenarios.
+
+- We propose a self-supervised framework for EEG-based object recognition with contrastive
+learning. Remarkable zero-shot performance has been achieved on large and rich datasets.
+- We demonstrate the feasibility of investigating natural image information from EEG signals.
+Extensive experiments affirm the biological plausibility, which brings a resolving of human
+object recognition from temporal, spatial, spectral, and semantic aspects.
+- We apply two plug-and-play modules to capture spatial correlations among EEG channels,
+offering evidence that the model discerns the spatial dynamics of object recognition.
 
 ## Datasets
 many thanks for sharing good datasets!
