@@ -42,15 +42,33 @@ many thanks for sharing good datasets!
    - save feature maps of each condition into `center_xxx.npy` (used in training)
 
 ## Training and Testing
+### Script path
+- ./nice_stand.py
 
-## Visualization
+## Visualization - updating
+### Script path
+- ./visualization/
+### Steps
 
 ## Milestones
 1. nice_v0.50 NICE (image contraste eeg)
 2. nice+_v0.55 NICE++ （image contraste eeg guided by text - 'a photo of a xxx'）
 
 <!-- ## Citation
-
+```
+@misc{song2023decoding,
+  title = {Decoding {{Natural Images}} from {{EEG}} for {{Object Recognition}}},
+  author = {Song, Yonghao and Liu, Bingchuan and Li, Xiang and Shi, Nanlin and Wang, Yijun and Gao, Xiaorong},
+  year = {2023},
+  month = nov,
+  number = {arXiv:2308.13234},
+  eprint = {2308.13234},
+  primaryclass = {cs, eess, q-bio},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2308.13234},
+  archiveprefix = {arxiv}
+}
+```
 ## Acknowledgement
 
 ## References

@@ -6,12 +6,10 @@ use 250 Hz data
 
 import os
 import argparse
-import math
 import random
 import itertools
 import datetime
 import time
-import scipy.io
 import numpy as np
 import pandas as pd
 
@@ -22,8 +20,6 @@ import torch.nn.init as init
 from torch import Tensor
 
 from torch.autograd import Variable
-
-from einops import rearrange
 from einops.layers.torch import Rearrange
 
 
@@ -61,6 +57,7 @@ def weights_init_normal(m):
 class PatchEmbedding(nn.Module):
     def __init__(self, emb_size=40):
         super().__init__()
+        # revised from shallownet
         self.shallownet = nn.Sequential(
             nn.Conv2d(1, 40, (1, 25), (1, 1)),
             nn.AvgPool2d((1, 51), (1, 5)),
@@ -73,12 +70,12 @@ class PatchEmbedding(nn.Module):
         )
 
         self.projection = nn.Sequential(
-            nn.Conv2d(40, emb_size, (1, 1), stride=(1, 1)),  # 5 is better than 1
+            nn.Conv2d(40, emb_size, (1, 1), stride=(1, 1)),  
             Rearrange('b e (h) (w) -> b (h w) e'),
         )
 
     def forward(self, x: Tensor) -> Tensor:
-        b, _, _, _ = x.shape
+        # b, _, _, _ = x.shape
         x = self.shallownet(x)
         x = self.projection(x)
         return x
@@ -97,20 +94,19 @@ class ResidualAdd(nn.Module):
 
 
 class FlattenHead(nn.Sequential):
-    def __init__(self, emb_size, n_classes):
+    def __init__(self):
         super().__init__()
 
     def forward(self, x):
         x = x.contiguous().view(x.size(0), -1)
-        # cls_out = self.fc(x) 
         return x
 
 
 class Enc_eeg(nn.Sequential):
-    def __init__(self, emb_size=40, depth=3, n_classes=4, **kwargs):
+    def __init__(self, emb_size=40, **kwargs):
         super().__init__(
             PatchEmbedding(emb_size),
-            FlattenHead(emb_size, n_classes)
+            FlattenHead()
         )
 
         

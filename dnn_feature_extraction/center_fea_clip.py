@@ -3,9 +3,7 @@ Package CLIP features for center images
 
 """
 
-
 import argparse
-from torchvision import models
 import torch.nn as nn
 import numpy as np
 import torch
@@ -13,7 +11,6 @@ from torch.autograd import Variable as V
 from torchvision import transforms as trn
 import os
 from PIL import Image
-import requests
 
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets

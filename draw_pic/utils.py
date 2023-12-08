@@ -136,13 +136,11 @@ class GradCAM:
         if self.cuda:
             input_tensor = input_tensor.cuda()
 
-        # 正向传播得到网络输出logits(未经过softmax)
         output = self.activations_and_grads(input_tensor)
         if isinstance(target_category, int):
             target_category = [target_category] * input_tensor.size(0)
 
         if target_category is None:
-            # ! 这里进行了修改 output[0]是输入的尺寸，output[1]是输出的尺寸?
             # output=output[1]
             target_category = np.argmax(output.cpu().data.numpy(), axis=-1)
             print(f"category id: {target_category}")

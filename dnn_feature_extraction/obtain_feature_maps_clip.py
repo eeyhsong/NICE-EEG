@@ -71,7 +71,5 @@ for p in img_partitions:
 		inputs.data['pixel_values'].cuda()
 		x = model(**inputs).image_embeds
 		feats = x.detach().cpu().numpy()
-		# for f, feat in enumerate(x):
-		# 	feats[model.feat_list[f]] = feat.data.cpu().numpy()
 		file_name = p + '_' + format(i+1, '07')
 		np.save(os.path.join(save_dir, file_name), feats)

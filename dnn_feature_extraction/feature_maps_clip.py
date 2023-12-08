@@ -6,14 +6,10 @@ Package all the CLIP features
 import argparse
 import numpy as np
 import os
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import KernelPCA
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--dnn', default='clip', type=str)
 parser.add_argument('--pretrained', default=True, type=bool)
-# parser.add_argument('--layers', default='single', type=str)
-# parser.add_argument('--n_components', default=1000, type=int)
 parser.add_argument('--project_dir', default='/home/Data/Things-EEG2/', type=str)
 args = parser.parse_args()
 
@@ -27,14 +23,11 @@ seed = 20200220
 
 # Load the feature maps
 feats = []
-# feats_all = []
-# fmaps_train = {}
 fmaps_dir = os.path.join(args.project_dir, 'DNN_feature_maps',
 	'full_feature_maps', args.dnn, 'pretrained-'+str(args.pretrained),
 	'training_images')
 fmaps_list = os.listdir(fmaps_dir)
 fmaps_list.sort()
-# fmaps_list = fmaps_list[:np.int16(len(fmaps_list)/2)]
 for f, fmaps in enumerate(fmaps_list):
 	fmaps_data = np.load(os.path.join(fmaps_dir, fmaps))
 	feats.append(fmaps_data)
@@ -51,8 +44,6 @@ del feats
 
 # Load the feature maps
 feats = []
-# feats_all = []
-# fmaps_test = {}
 fmaps_dir = os.path.join(args.project_dir, 'DNN_feature_maps',
 	'full_feature_maps', args.dnn, 'pretrained-'+str(args.pretrained),
 	'test_images')
