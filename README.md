@@ -53,7 +53,8 @@ many thanks for sharing good datasets!
 ## Milestones
 1. nice_v0.50 NICE (natural image contraste eeg)
 
-<!-- ## Citation
+## Citation
+Hope this code can be useful. I would appreciate you citing us in your paper. 😊
 ```
 @misc{song2023decoding,
   title = {Decoding {{Natural Images}} from {{EEG}} for {{Object Recognition}}},
@@ -68,7 +69,7 @@ many thanks for sharing good datasets!
   archiveprefix = {arxiv}
 }
 ```
-## Acknowledgement
+<!-- ## Acknowledgement
 
 ## References
 
