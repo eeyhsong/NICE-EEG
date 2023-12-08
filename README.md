@@ -43,7 +43,7 @@ many thanks for sharing good datasets!
 
 ## Training and Testing
 ### Script path
-- ./nice_stand.py
+- `./nice_stand.py`
 
 ## Visualization - updating
 ### Script path
@@ -51,8 +51,7 @@ many thanks for sharing good datasets!
 ### Steps
 
 ## Milestones
-1. nice_v0.50 NICE (image contraste eeg)
-2. nice+_v0.55 NICE++ （image contraste eeg guided by text - 'a photo of a xxx'）
+1. nice_v0.50 NICE (natural image contraste eeg)
 
 <!-- ## Citation
 ```
