@@ -1,5 +1,5 @@
 """
-Package CLIP features for center images
+Package ViT features for center images
 
 """
 
@@ -7,11 +7,13 @@ import argparse
 import torch.nn as nn
 import numpy as np
 import torch
+from torch.autograd import Variable as V
+from torchvision import transforms as trn
 import os
 from PIL import Image
-from transformers import CLIPProcessor, CLIPModel
+from transformers import AutoImageProcessor, ViTForImageClassification
 
-gpus = [0]
+gpus = [8]
 os.environ['CUDA_DEVICE_ORDER'] = 'PCI_BUS_ID'
 os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, gpus))
 
@@ -29,14 +31,17 @@ for key, val in vars(args).items():
 seed = 20200220
 torch.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
-# torch.use_deterministic_algorithms(True)
 
-model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14")
-model = model.cuda()
+vit_model = ViTForImageClassification.from_pretrained("google/vit-base-patch16-224")
+model = vit_model.vit.cuda()
 model = nn.DataParallel(model, device_ids=[i for i in range(len(gpus))])
 
-
-processor = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14")
+centre_crop = trn.Compose([
+	trn.Resize((224, 224)),
+	trn.ToTensor(),
+	# trn.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+	trn.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
+])
 
 img_set_dir = os.path.join(args.project_dir, 'image_set/center_images/')
 condition_list = os.listdir(img_set_dir)
@@ -52,18 +57,17 @@ for cond in condition_list:
     for img in cond_img_list:
         img_path = os.path.join(one_cond_dir, img)
         img = Image.open(img_path).convert('RGB')
-        inputs = processor(text=["a photo of a cat", "a photo of a dog"], images=img, return_tensors="pt", padding=True)
-        inputs.data['pixel_values'].cuda()
-        with torch.no_grad():
-            outputs = model(**inputs).image_embeds
-    # * for mean center
-    #     cond_center.append(outputs.detach().cpu().numpy())
+        input_img = V(centre_crop(img).unsqueeze(0))
+        if torch.cuda.is_available():
+            input_img=input_img.cuda()
+            x = model(input_img).last_hidden_state[:,0,:]
+
+        #     cond_center.append(outputs.detach().cpu().numpy())
     # cond_center = np.mean(cond_center, axis=0)
     # all_centers.append(np.squeeze(cond_center))
-        cond_center.append(np.squeeze(outputs.detach().cpu().numpy()))
+        cond_center.append(np.squeeze(x.detach().cpu().numpy()))
     all_centers.append(np.array(cond_center))
-
 
 # all_centers = np.array(all_centers)
 # print(all_centers.shape)
-np.save(os.path.join(args.project_dir, 'center_all_image_clip.npy'), all_centers)
+np.save(os.path.join(args.project_dir, 'center_all_image_vit.npy'), all_centers)

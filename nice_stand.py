@@ -58,7 +58,7 @@ class PatchEmbedding(nn.Module):
     def __init__(self, emb_size=40):
         super().__init__()
         # revised from shallownet
-        self.shallownet = nn.Sequential(
+        self.tsconv = nn.Sequential(
             nn.Conv2d(1, 40, (1, 25), (1, 1)),
             nn.AvgPool2d((1, 51), (1, 5)),
             nn.BatchNorm2d(40),
@@ -76,7 +76,7 @@ class PatchEmbedding(nn.Module):
 
     def forward(self, x: Tensor) -> Tensor:
         # b, _, _, _ = x.shape
-        x = self.shallownet(x)
+        x = self.tsconv(x)
         x = self.projection(x)
         return x
 
