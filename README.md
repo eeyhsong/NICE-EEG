@@ -58,8 +58,10 @@ many thanks for sharing good datasets!
 - ./visualization/
 ### Steps
 
+<!--
 ## Milestones
 1. nice_v0.50 NICE (natural image contraste eeg)
+-->
 
 ## Citation
 Hope this code can be useful. I would appreciate you citing us in your paper. 😊
