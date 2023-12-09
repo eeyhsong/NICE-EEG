@@ -13,7 +13,7 @@ many thanks for sharing good datasets!
 1. [Things-EEG2](https://www.sciencedirect.com/science/article/pii/S1053811922008758?via%3Dihub)
 2. [Things-MEG](https://elifesciences.org/articles/82580) (updating)
 
-## Pre-processing
+## Pre-processing - EEG
 ### Script path
 - ./preprocessing/
 ### Data Path 
@@ -33,7 +33,7 @@ many thanks for sharing good datasets!
 2. get the center images of each test condition (for testing, contrast with EEG features)
    - get images from original Things dataset but discard the images used in EEG test sessions.
   
-## Get the Features from Pre-Trained Models
+## Get the Features from Pre-Trained Models - Image
 ### Script path
 - ./dnn_feature_extraction/
 ### Data Path (follow the original dataset setting)
