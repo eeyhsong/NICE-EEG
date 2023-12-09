@@ -64,7 +64,7 @@ many thanks for sharing good datasets!
 -->
 
 ## Citation
-Hope this code can be useful. I would appreciate you citing us in your paper. 😊
+Hope this code is helpful. I would appreciate you citing us in your paper. 😊
 ```
 @misc{song2023decoding,
   title = {Decoding {{Natural Images}} from {{EEG}} for {{Object Recognition}}},
