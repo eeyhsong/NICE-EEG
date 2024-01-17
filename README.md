@@ -18,10 +18,10 @@ many thanks for sharing good datasets!
 
 ## Pre-processing - EEG
 ### Script path
-- ./preprocessing/
+- `./preprocessing/`
 ### Data Path 
-- raw data: ./Data/Things-EEG2/Raw_data/
-- proprocessed eeg data: ./Data/Things-EEG2/Preprocessed_data_250Hz/
+- raw data: `./Data/Things-EEG2/Raw_data/`
+- proprocessed eeg data: `./Data/Things-EEG2/Preprocessed_data_250Hz/`
 ### Steps
 1. pre-processing EEG data of each subject
    - modify `preprocessing_utils.py` as you need.
@@ -38,13 +38,13 @@ many thanks for sharing good datasets!
   
 ## Get the Features from Pre-Trained Models - Image
 ### Script path
-- ./dnn_feature_extraction/
+- `./dnn_feature_extraction/`
 ### Data Path (follow the original dataset setting)
-- raw image: ./Data/Things-EEG2/Image_set/image_set/
-- preprocessed eeg data: ./Data/Things-EEG2/Preprocessed_data/
-- features of each images: ./Data/Things-EEG2/DNN_feature_maps/full_feature_maps/model/pretrained-True/
-- features been packaged: ./Data/Things-EEG2/DNN_feature_maps/pca_feature_maps/model/pretrained-True/
-- features of condition centers: ./Data/Things-EEG2/Image_set/
+- raw image: `./Data/Things-EEG2/Image_set/image_set/`
+- preprocessed eeg data: `./Data/Things-EEG2/Preprocessed_data/`
+- features of each images: `./Data/Things-EEG2/DNN_feature_maps/full_feature_maps/model/pretrained-True/`
+- features been packaged: `./Data/Things-EEG2/DNN_feature_maps/pca_feature_maps/model/pretrained-True/`
+- features of condition centers: `./Data/Things-EEG2/Image_set/`
 ### Steps
 1. obtain feature maps with each pre-trained model with `obtain_feature_maps_xxx.py` (clip, vit, resnet...)
 2. package all the feature maps into one .npy file with `feature_maps_xxx.py`
@@ -58,7 +58,7 @@ many thanks for sharing good datasets!
 
 ## Visualization - updating
 ### Script path
-- ./visualization/
+- `./visualization/`
 ### Steps
 
 <!--
