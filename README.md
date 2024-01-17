@@ -15,10 +15,10 @@ many thanks for sharing good datasets!
 1. [Things-EEG2](https://www.sciencedirect.com/science/article/pii/S1053811922008758?via%3Dihub)
 2. [Things-MEG](https://elifesciences.org/articles/82580) (updating)
 
-## Pre-processing - EEG
+## EEG pre-processing
 ### Script path
 - `./preprocessing/`
-### Data Path 
+### Data path 
 - raw data: `./Data/Things-EEG2/Raw_data/`
 - proprocessed eeg data: `./Data/Things-EEG2/Preprocessed_data_250Hz/`
 ### Steps
@@ -35,10 +35,10 @@ many thanks for sharing good datasets!
 2. get the center images of each test condition (for testing, contrast with EEG features)
    - get images from original Things dataset but discard the images used in EEG test sessions.
   
-## Get the Features from Pre-Trained Models - Image
+## Image features from pre-trained models
 ### Script path
 - `./dnn_feature_extraction/`
-### Data Path (follow the original dataset setting)
+### Data path (follow the original dataset setting)
 - raw image: `./Data/Things-EEG2/Image_set/image_set/`
 - preprocessed eeg data: `./Data/Things-EEG2/Preprocessed_data/`
 - features of each images: `./Data/Things-EEG2/DNN_feature_maps/full_feature_maps/model/pretrained-True/`
@@ -51,7 +51,7 @@ many thanks for sharing good datasets!
    - save feature maps of each center image into `center_all_image_xxx.npy`
    - save feature maps of each condition into `center_xxx.npy` (used in training)
 
-## Training and Testing
+## Training and testing
 ### Script path
 - `./nice_stand.py`
 
