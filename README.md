@@ -1,5 +1,5 @@
-# Decoding Nature Images from EEG for Object Recognition 
-Natural Image Contrast EEG (NICE) [[Paper](https://arxiv.org/abs/2308.13234)]
+# NICE
+Decoding Nature Images from EEG for Object Recognition [ICLR2024](https://arxiv.org/pdf/2308.13234.pdf)]
 
 ## Abstract
 ![Network Architecture](/draw_pic/Fig1.png)
