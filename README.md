@@ -1,5 +1,5 @@
 # NICE
-Decoding Nature Images from EEG for Object Recognition [ICLR2024](https://arxiv.org/pdf/2308.13234.pdf)]
+Decoding Nature Images from EEG for Object Recognition [[ICLR2024](https://arxiv.org/pdf/2308.13234.pdf)]
 
 ## Abstract
 ![Network Architecture](/draw_pic/Fig1.png)
