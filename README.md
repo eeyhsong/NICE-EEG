@@ -12,8 +12,8 @@
 
 ## Datasets
 many thanks for sharing good datasets!
-i) [Things-EEG2](https://www.sciencedirect.com/science/article/pii/S1053811922008758?via%3Dihub)
-ii) [Things-MEG](https://elifesciences.org/articles/82580) (updating)
+1. [Things-EEG2](https://www.sciencedirect.com/science/article/pii/S1053811922008758?via%3Dihub)
+2. [Things-MEG](https://elifesciences.org/articles/82580) (updating)
 
 ## EEG pre-processing
 ### Script path
