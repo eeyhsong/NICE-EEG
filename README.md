@@ -1,7 +1,8 @@
 # NICE
 ### Decoding Nature Images from EEG for Object Recognition [[ICLR2024](https://arxiv.org/pdf/2308.13234.pdf)]
 
-##### Core idea: basic constrastive learning for image and EEG. some interesting analysis from neuroscience perspective!
+##### Core idea: basic constrastive learning for image and EEG.
+##### Interesting analysis from neuroscience perspective! 🤣
 
 ## Abstract
 ![Network Architecture](/draw_pic/Fig1.png)
