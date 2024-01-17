@@ -1,7 +1,7 @@
 # NICE
 ### Decoding Nature Images from EEG for Object Recognition [[ICLR2024](https://arxiv.org/pdf/2308.13234.pdf)]
 
-##### Core idea: basic constrastive learning (infoNCE loss) for image and EEG.
+##### Core idea: basic constrastive learning for image and EEG. some interesting analysis from neuroscience perspective!
 
 ## Abstract
 ![Network Architecture](/draw_pic/Fig1.png)
@@ -29,7 +29,7 @@ many thanks for sharing good datasets!
      - baseline correction
      - resample to 250 Hz
      - sort by condition
-     - **Multivariate Noise Normalization**
+     - Multivariate Noise Normalization (z-socre is also ok)
    - `python preprocessing.py` for each subject. 
 
 2. get the center images of each test condition (for testing, contrast with EEG features)
