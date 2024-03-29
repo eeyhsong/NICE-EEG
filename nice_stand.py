@@ -161,8 +161,8 @@ class IE():
 
         self.start_epoch = 0
         self.eeg_data_path = '/home/Data/Things-EEG2/Preprocessed_data_250Hz/'
-        self.img_data_path = '/home/Data/Things-EEG2/DNN_feature_maps/pca_feature_maps/' + args.dnn + '/pretrained-True/'
-        self.test_center_path = '/home/Data/Things-EEG2/Image_set/'
+        self.img_data_path = './dnn_feature/'
+        self.test_center_path = './dnn_feature/'
         self.pretrain = False
 
         self.log_write = open(result_path + "log_subject%d.txt" % self.nSub, "w")

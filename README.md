@@ -37,6 +37,8 @@ many thanks for sharing good datasets!
   
 ## Image features from pre-trained models
 ### Script path
+Now we release the image features extracted with CLIP model in `./dnn_feature/`.
+<!--
 - `./dnn_feature_extraction/`
 ### Data path (follow the original dataset setting)
 - raw image: `./Data/Things-EEG2/Image_set/image_set/`
@@ -50,6 +52,7 @@ many thanks for sharing good datasets!
 3. obtain feature maps of center images with `center_fea_xxx.py`
    - save feature maps of each center image into `center_all_image_xxx.npy`
    - save feature maps of each condition into `center_xxx.npy` (used in training)
+-->
 
 ## Training and testing
 ### Script path
