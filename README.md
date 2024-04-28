@@ -71,17 +71,12 @@ Now we release the image features extracted with CLIP model in `./dnn_feature/`.
 ## Citation
 Hope this code is helpful. I would appreciate you citing us in your paper. 😊
 ```
-@misc{song2023decoding,
+@inproceedings{song2024decoding,
   title = {Decoding {{Natural Images}} from {{EEG}} for {{Object Recognition}}},
   author = {Song, Yonghao and Liu, Bingchuan and Li, Xiang and Shi, Nanlin and Wang, Yijun and Gao, Xiaorong},
-  year = {2023},
-  month = nov,
-  number = {arXiv:2308.13234},
-  eprint = {2308.13234},
-  primaryclass = {cs, eess, q-bio},
-  publisher = {{arXiv}},
-  doi = {10.48550/arXiv.2308.13234},
-  archiveprefix = {arxiv}
+  booktitle = {International {{Conference}} on {{Learning Representations}}},
+  year = {2024},
+  langid = {english}
 }
 ```
 <!-- ## Acknowledgement
