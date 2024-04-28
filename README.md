@@ -76,7 +76,6 @@ Hope this code is helpful. I would appreciate you citing us in your paper. 😊
   author = {Song, Yonghao and Liu, Bingchuan and Li, Xiang and Shi, Nanlin and Wang, Yijun and Gao, Xiaorong},
   booktitle = {International {{Conference}} on {{Learning Representations}}},
   year = {2024},
-  langid = {english}
 }
 ```
 <!-- ## Acknowledgement
