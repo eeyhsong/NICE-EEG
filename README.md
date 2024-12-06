@@ -3,6 +3,8 @@
 
 ##### Core idea: basic constrastive learning for image and EEG. Interesting analysis from neuroscience perspective! 🤣
 
+p.s. We trained the base framework (NICE), that with self-attention (NICE-SA), and with graph attention (NICE-GA) five times each for the averaged results in Table 2&3.
+
 ## Abstract
 ![Network Architecture](/draw_pic/Fig1.png)
 
@@ -38,7 +40,7 @@ many thanks for sharing good datasets!
 ## Image features from pre-trained models
 ### Script path
 Now we release the image features extracted with CLIP model in `./dnn_feature/`.
-<!--
+
 - `./dnn_feature_extraction/`
 ### Data path (follow the original dataset setting)
 - raw image: `./Data/Things-EEG2/Image_set/image_set/`
@@ -52,7 +54,7 @@ Now we release the image features extracted with CLIP model in `./dnn_feature/`.
 3. obtain feature maps of center images with `center_fea_xxx.py`
    - save feature maps of each center image into `center_all_image_xxx.npy`
    - save feature maps of each condition into `center_xxx.npy` (used in training)
--->
+
 
 ## Training and testing
 ### Script path
