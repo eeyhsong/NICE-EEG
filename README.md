@@ -2,6 +2,7 @@
 ### Decoding Nature Images from EEG for Object Recognition [[ICLR2024](https://arxiv.org/pdf/2308.13234.pdf)]
 
 ##### Core idea: basic constrastive learning for image and EEG. Interesting analysis from neuroscience perspective! 🤣
+##### The model could be used by wide electrophysiological data, such as EEG, MEG, ECoG, and spike recordings.
 
 p.s. We trained the base framework (NICE), that with self-attention (NICE-SA), and with graph attention (NICE-GA) five times each for the averaged results in Table 2&3.
 
@@ -64,6 +65,10 @@ Now we release the image features extracted with CLIP model in `./dnn_feature/`.
 ### Script path
 - `./visualization/`
 ### Steps
+
+## Cross-individual
+We provide the checkpoint trained by the data of 10 subjects from THINGS-EEG2.
+Please download `https://huggingface.co/eeyhsong/NICE` if you need.
 
 <!--
 ## Milestones
